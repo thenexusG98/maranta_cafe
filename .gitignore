@@ -1,0 +1,51 @@
+# Flutter
+.dart_tool/
+.packages
+build/
+.pub-cache/
+.pub/
+*.dart_snapshots/
+
+# Dart
+.dart_tool/
+.packages
+
+# Android
+android/.gradle/
+android/captures/
+android/gradlew
+android/gradlew.bat
+android/local.properties
+android/**/GeneratedPluginRegistrant.java
+android/key.properties
+**/*.jks
+
+# iOS
+ios/.symlinks/
+ios/Pods/
+ios/Flutter/.last_build_id
+/ios/Runner.xcworkspace
+ios/Runner/GeneratedPluginRegistrant.h
+ios/Runner/GeneratedPluginRegistrant.m
+
+# macOS
+macos/Flutter/GeneratedPluginRegistrant.swift
+macos/Flutter/ephemeral/
+
+# Web
+lib/generated_plugin_registrant.dart
+
+# IDE
+.idea/
+.vscode/settings.json
+.vscode/.history
+*.swp
+*.swo
+.DS_Store
+
+# Secrets (never commit real tokens or URLs)
+# If you have a secrets file, add it here
+# lib/core/secrets.dart
+
+# Coverage
+coverage/
