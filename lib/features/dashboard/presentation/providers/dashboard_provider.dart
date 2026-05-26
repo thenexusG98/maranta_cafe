@@ -16,7 +16,7 @@ final dashboardModeProvider = StateProvider<DashboardMode>(
 
 // ── Stats del día ────────────────────────────────────────────────────────────
 
-final dailyStatsProvider = FutureProvider<DailyStats>((ref) async {
+final dailyStatsProvider = FutureProvider.autoDispose<DailyStats>((ref) async {
   final repo = ref.read(dashboardRepositoryProvider);
   final mode = ref.watch(dashboardModeProvider);
 

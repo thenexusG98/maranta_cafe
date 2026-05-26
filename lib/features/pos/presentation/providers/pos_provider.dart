@@ -211,3 +211,33 @@ final submitOrderProvider = FutureProvider.family<Order, CartState>((ref, cartSt
     paymentMethod: cartState.paymentMethod,
   );
 });
+
+// ─── Todos los productos (incluye no disponibles) — gestión del menú ─────────
+
+final allProductsProvider = FutureProvider<List<Product>>((ref) async {
+  return ref.read(posRepositoryProvider).getProducts();
+});
+
+// ─── Agregar producto al menú ─────────────────────────────────────────────────
+
+final addMenuProductProvider = FutureProvider.family<void, Product>(
+  (ref, product) async {
+    await ref.read(posRepositoryProvider).addProduct(product);
+    ref.invalidate(productsProvider);
+    ref.invalidate(allProductsProvider);
+  },
+);
+
+// ─── Cambiar disponibilidad de producto ───────────────────────────────────────
+
+typedef ToggleProductArgs = ({String id, bool isAvailable});
+
+final toggleProductProvider = FutureProvider.family<void, ToggleProductArgs>(
+  (ref, args) async {
+    await ref.read(posRepositoryProvider).updateProductAvailability(
+      args.id, args.isAvailable,
+    );
+    ref.invalidate(productsProvider);
+    ref.invalidate(allProductsProvider);
+  },
+);
